@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import specialties from "../../data/specialties";
+import Layout from "../../layouts/Layout.astro";
+import type { ParagraphType } from "../../types";
+import ParagraphItem from "../../components/ParagraphItem.astro";
+import ListItem from "../../components/ListItem.astro";
+
+export function getStaticPaths() {
+    return specialties.map(({id}) => ({params: {specialty: id}}));
+};
+
+const {specialty: id} = Astro.params;
+
+const isParagraph = (item: ParagraphType) => item.type === 'paragraph';
+
+const specialty = specialties.find(specialty => specialty.id === Number(id))!;
+---
+
+<Layout title={specialty.specialty}>
+    <section class="container mx-auto px-4 my-20 flex flex-col-reverse md:flex-row gap-6 items-center">
+        <div class="space-y-6 flex-1">
+            { specialty.main_paragraphs.map(paragraph => 
+                <p class="bg-white text-slate-800 border-l-8 border-rose-950 shadow-lg font-extrabold text-lg px-4 py-2 rounded">
+                    { paragraph }
+                </p>
+            ) }
+        </div>
+
+        <picture class="max-w-60 border-8 border-cyan-950 p-6 rounded-full bg-white shadow-lg">
+            <Image 
+                src={specialty.icon}
+                alt={`Icono de la especialidad de ${specialty.specialty}`}
+                title={`Icono de la especialidad de ${specialty.specialty}`}
+                class="w-full h-auto"
+            />
+        </picture>
+    </section>
+
+    <section class="mx-auto container my-20 px-4">
+        <div class="bg-white px-4 pb-4 shadow-lg">
+            <h2 class="px-4 py-2 bg-zinc-800 text-white font-extrabold text-2xl inline-block -translate-y-6 -translate-x-6 shadow-lg">
+                Justificación
+            </h2>
+
+            <ul role="list" class="space-y-6">
+                { specialty.description.map(item => 
+                    isParagraph(item) ? 
+                    <ParagraphItem
+                        paragraph={item}
+                    />
+                        :
+                    <ListItem 
+                        list={item}
+                    />
+                ) }
+            </ul>
+        </div>
+    </section>
+
+    <section class="mx-auto container my-20 px-4">
+        <div class="bg-white px-4 pb-4 shadow-lg">
+            <h2 class="px-4 py-2 bg-zinc-800 text-white font-extrabold text-2xl inline-block -translate-y-6 -translate-x-6 shadow-lg">
+                Perfil de Egreso
+            </h2>
+
+            <ul role="list" class="space-y-6">
+                { specialty.egress_perfil.map(item => 
+                    isParagraph(item) ? 
+                    <ParagraphItem
+                        paragraph={item}
+                    />
+                        :
+                    <ListItem 
+                        list={item}
+                    />
+                ) }
+            </ul>
+        </div>
+    </section>
+</Layout>

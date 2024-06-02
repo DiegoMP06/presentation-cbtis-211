@@ -1,0 +1,13 @@
+---
+    import type { ParagraphType } from '../types'
+
+    type Props = {
+        paragraph: ParagraphType;
+    }
+
+    const {paragraph} = Astro.props;
+---
+
+<li class="font-bold text-slate-800">
+    { paragraph.paragraph }
+</li>

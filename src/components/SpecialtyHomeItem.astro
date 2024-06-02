@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import type { SpecialtyType } from '../types'
+
+type Props = {
+    specialty: SpecialtyType;
+}
+
+const {specialty} = Astro.props;
+---
+
+<div class="shadow-white shadow border border-white rounded p-4">
+    <p class="-translate-x-6 -translate-y-8 py-2 px-4 uppercase bg-white text-zinc-800 font-bold inline-block">
+        { specialty.specialty }
+        <span class="pt-2 block">
+            <Image
+                src={specialty.icon}
+                alt={`Icono de la carrera de ${specialty.specialty}`}
+                title={`Icono de la carrera de ${specialty.specialty}`}
+                class="w-8 h-8"
+                loading="eager"
+            />
+        </span>
+    </p>
+
+    <p class="text-white font-bold ">
+        { specialty.description[0].paragraph.substring(0, 150) }...
+    </p>
+
+    <div class="flex justify-end mt-6">
+        <a 
+            href={`/specialties/${specialty.id}`} 
+            class="text-white px-4 py-2 border border-white transition-colors block font-bold hover:bg-zinc-700"
+        >
+            Ver Más 
+        </a>
+    </div>
+</div>

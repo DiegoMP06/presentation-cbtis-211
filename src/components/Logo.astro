@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import DGETI from '../assets/icons/dgeti.webp'
+import LOGO211 from '../assets/icons/logo_211.webp'
+
+type Props = {
+    title?: string;
+}
+
+const {title = 'CBTIS 211'} = Astro.props;
+---
+
+<div class="inline-flex bg-white rounded-lg items-center gap-1 p-2">
+    <div class="size-10">
+        <Image 
+            src={DGETI} 
+            alt="Icono de la DGETI" 
+            title="Icono de la DGETI" 
+            class="h-10 w-auto block"
+            loading="eager"
+        />
+    </div>
+
+    <div class="size-10">
+        <Image
+            src={LOGO211} 
+            alt="Icono del CBTIS 211" 
+            title="Icono del CBTIS 211" 
+            class="h-10 w-auto block"
+            loading="eager"
+        />
+    </div>
+
+    <p class="text-sm font-extrabold">
+        { title }
+    </p>
+</div>

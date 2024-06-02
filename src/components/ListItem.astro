@@ -1,0 +1,23 @@
+---
+    import type { ParagraphType } from '../types'
+
+    type Props = {
+        list: ParagraphType;
+    }
+
+    const {list} = Astro.props;
+---
+
+<li class="space-y-4">
+    <p class="text-slate-800 font-bold">
+        { list.paragraph }
+    </p>
+
+    <ul class="space-y-1 ml-6 list-disc">
+        { list.items?.map(item => 
+            <li class="text-slate-600 font-bold">
+                { item }
+            </li>
+        ) }
+    </ul>
+</li>

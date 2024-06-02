@@ -1,0 +1,37 @@
+---
+    import { Image } from "astro:assets"
+    import Logo from "./Logo.astro"
+    import SEP from '../assets/icons/sep.webp'
+---
+
+<section class="bg-hero bg-blend-hard-light bg-position-hero bg-size-hero bg-rose-600 flex min-h-96 bg-fixed">
+    <div class=" bg-gradient-linear-hero flex-1">
+        <div class="container mx-auto px-4 py-10">
+            <div class="flex justify-between flex-col md:flex-row gap-4 items-start md:items-center">
+                <Logo />
+
+                <div class="hidden md:block p-2 bg-white rounded-lg">
+                    <Image 
+                        src={SEP} 
+                        alt="Icono de la SEP" 
+                        title="Icono de la SEP" 
+                        class="h-10 block w-auto"
+                        loading="eager"
+                    />
+                </div>
+            </div>
+
+            <div class="mt-16">
+                <h1 class="text-4xl md:text-5xl xl:text-6xl font-extrabold text-white">
+                    Centro de Bachillerato Tecnológico industrial y de servicios No. 211
+                </h1>
+
+                <div class="grid grid-cols-1 md:block">
+                    <p class="text-white bg-rose-950 text-4xl font-extrabold mt-28 inline-block p-4 rounded-[3rem] truncate">
+                        #JóvenesCompetitivos
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

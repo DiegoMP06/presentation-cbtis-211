@@ -1,0 +1,173 @@
+---
+import { Image } from "astro:assets";
+import CardExplore from "../components/CardExplore.astro";
+import specialties from "../data/specialties";
+import MainLayout from "../layouts/MainLayout.astro";
+import SpecialtyHomeItem from "../components/SpecialtyHomeItem.astro";
+import IMG1 from "../assets/img/8.jpg";
+import IMG2 from "../assets/img/6.jpg";
+import IMG3 from "../assets/img/7.jpg";
+---
+
+<MainLayout title="Home">
+    <section class="my-10 container mx-auto px-4">
+        <h2 class="text-4xl font-extrabold text-cyan-900 text-center">
+            Explora
+        </h2>
+
+        <div class="my-10 grid grid-cols-1 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <CardExplore classes="p-4">
+                    <p
+                        class="absolute -top-2 -left-2 p-4 bg-rose-950 text-white font-bold text-xl"
+                    >
+                        ¡Orgullo DGETI!
+                    </p>
+
+                    <p class="pt-14 font-bold text-slate-800">
+                        Los
+                        <span class="text-rose-900">#JóvenesCompetitivos</span>
+                        se forman en las aulas. Acércate a DGETI y conoce más de
+                        las herramientas que la Educación Técnica y Tecnológica tiene
+                        para ti.
+                    </p>
+                </CardExplore>
+
+                <CardExplore classes="px-4 pt-4">
+                    <p class="text-slate-800 font-bold">
+                        Sabías que
+                        <span class="text-rose-900">DGETI</span>
+                        ofrece 49 carreras técnicas que abarcan tres áreas de conocimiento:
+                    </p>
+
+                    <ul
+                        class="flex flex-col gap-2 items-start -translate-x-6 translate-y-4"
+                        role="list"
+                    >
+                        <li class="text-white bg-cyan-950 px-4 py-2">
+                            Físico-matemático 📈
+                        </li>
+                        <li class="text-white bg-cyan-950 px-4 py-2">
+                            Económico-administrativas 📊
+                        </li>
+                        <li class="text-white bg-cyan-950 px-4 py-2">
+                            Químico-biológicas 👩‍🔬
+                        </li>
+                    </ul>
+                </CardExplore>
+            </div>
+
+            <CardExplore classes="px-4 pt-4">
+                <p class="text-2xl font-bold text-rose-900 truncate">
+                    #JóvenesCompetitivos
+                </p>
+
+                <p class="mt-6 font-bold text-slate-800">
+                    Estudia una educación Técnica y Tecnológica y prepárate para
+                    el mundo real.
+                </p>
+
+                <div class="flex justify-center">
+                    <p
+                        class="translate-y-4 bg-rose-950 text-lg font-bold text-white px-4 py-2 text-center"
+                    >
+                        "Alcancemos el mañana con nuestra propia tecnología"
+                    </p>
+                </div>
+            </CardExplore>
+        </div>
+    </section>
+
+    <main class="bg-zinc-800 py-10 my-10">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-extrabold text-white text-center">
+                Especialidades
+            </h2>
+
+            <div
+                class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 my-10 gap-6"
+            >
+                {
+                    specialties.map((specialty) => (
+                        <SpecialtyHomeItem specialty={specialty} />
+                    ))
+                }
+            </div>
+        </div>
+    </main>
+
+    <section class="my-10 container mx-auto px-4">
+        <h2 class="text-4xl font-extrabold text-rose-950 text-center">
+            Sobre Nosotros
+        </h2>
+
+        <div
+            class="my-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center xl:flex"
+        >
+            <article class="space-y-4 xl:w-2/3">
+                <p
+                    class="text-slate-800 bg-white border-l-8 border-rose-950 rounded px-4 py-2 shadow-lg font-bold"
+                >
+                    <span class="text-rose-950 font-black text-xl">
+                        El CBTiS 211
+                    </span>
+                    fue creado el 3 de septiembre de 1984. La inauguración, el inicio
+                    de actividades y la recepción del plantel empezaron el 4 de octubre
+                    del mismo año.
+                </p>
+
+                <p class="text-slate-800 bg-white border-l-8 border-rose-950 rounded px-4 py-2 shadow-lg font-bold">
+                    El nombre asignado originalmente fue José Miguel Guridi y
+                    Alcocer con el número 211 y se encuentra ubicado en la calle
+                    <span class="text-rose-950 font-black">
+                        Tlahuicole no.6, San Jorge Tezoquipan, Panotla,
+                        Tlaxcala, C.P. 90147.
+                    </span>
+                </p>
+
+                <p class="text-slate-800 bg-white border-l-8 border-rose-950 rounded px-4 py-2 shadow-lg font-bold">
+                    Es una institución de educación medio superior,
+                    perteneciente a
+                    <span class="text-rose-950 font-black">
+                        La Dirección General de Educación Tecnológica
+                        industrial.
+                    </span>
+                    Ofrecemos Bachillerato Técnico bivalente junto con carreras técnicas.
+                </p>
+
+                <p class="text-slate-800 bg-white border-l-8 border-rose-950 rounded px-4 py-2 shadow-lg font-bold">
+					<span class="text-rose-950 font-black">
+						El Bachillerato Tecnológico
+					</span>
+                    tiene como objetivo fomentar una
+                    educación integral, contribuyendo a la articulación y
+                    flexibilidad del sistema educativo, acorde con los intereses
+                    de los estudiantes y las necesidades de desarrollo del país,
+                    la Secretaria de Educación Publica a través de la
+                    Subsecretaria de Educación e Investigación Tecnológicas, con
+                    pleno respeto al federalismo educativo.
+                </p>
+            </article>
+
+            <div class="grid grid-cols-1 rounded-lg overflow-hidden shadow-xl xl:flex-1">
+                <div class="grid grid-cols-2">
+                    <Image 
+						src={IMG1} 
+						alt="Imagen de la primera section" 
+					/>
+
+                    <Image 
+						src={IMG3} 
+						alt="Imagen de la primera section" 
+					/>
+                </div>
+
+                <Image
+                    src={IMG2}
+                    class="block w-full"
+                    alt="Imagen de la segunda section"
+                />
+            </div>
+        </div>
+    </section>
+</MainLayout>

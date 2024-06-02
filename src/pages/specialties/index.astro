@@ -1,0 +1,40 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SpecialtyItem from "../../components/SpecialtyItem.astro";
+import specialties from "../../data/specialties";
+---
+
+<Layout title="Oferta Educativa">
+    <main class="container mx-auto px-4 my-20 space-y-10">
+        <article class="bg-white shadow-lg px-4 pb-4 rounded">
+            <h2 class="text-white font-extrabold px-4 py-2 bg-rose-950 inline-block -translate-x-6 -translate-y-4 text-xl">
+                Oferta Educativa del CBTIS 211: Preparándote para el Futuro
+            </h2>
+
+            <p class="font-bold text-slate-800">
+                En el 
+                <span class="font-black text-rose-950">
+                    Centro de Bachillerato Tecnológico Industrial y de Servicios No. 211,
+                </span>
+                te ofrecemos una amplia gama de especialidades para que encuentres tu pasión y te prepares para el mundo laboral. Nuestros programas están diseñados para brindarte conocimientos prácticos y habilidades específicas en áreas clave:
+            </p>
+        </article>
+
+        <article class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            { specialties.map(specialty => 
+                <SpecialtyItem 
+                    specialty={specialty}
+                />
+            ) }
+        </article>
+
+        <article class="bg-white shadow-lg p-4 rounded">
+            <p class="font-bold text-slate-800">
+                En el CBTIS 211, no solo adquirirás conocimientos teóricos, sino también experiencias prácticas que te prepararán para enfrentar los retos del mundo laboral. 
+                <span class="font-black text-rose-950">
+                    ¡Elige tu camino y construye tu futuro con nosotros!
+                </span>
+            </p>
+        </article>
+    </main>
+</Layout>

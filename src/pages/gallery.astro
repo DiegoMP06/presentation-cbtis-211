@@ -1,0 +1,28 @@
+---
+    import Layout from "../layouts/Layout.astro";
+    import GalleryReact from '../components/GalleryReact'
+---
+
+<Layout title="Galeria">
+    <section class="mx-auto container px-4 my-20">
+        <article class="bg-white px-4 pb-4 rounded shadow-lg">
+            <h2 class="-translate-x-6 -translate-y-8 px-4 py-2 font-extrabold text-white bg-rose-950 shadow-lg text-xl inline-block">
+                Recuerdos en Imágenes: Un Viaje a Través del Tiempo ⏲️
+            </h2>
+
+            <p class="font-bold text-slate-800 mb-8 -mt-4">
+                En esta galería de imágenes, cada fotografía es un tesoro que nos transporta a momentos especiales. Cada sonrisa, cada abrazo y cada paisaje capturado en el tiempo nos recuerda quiénes éramos, quiénes somos y quiénes queremos ser.
+            </p>
+    
+            <p class="font-bold text-slate-800 mb-8">
+                Las fotos en blanco y negro nos hablan de la nostalgia de épocas pasadas: abuelos jóvenes, padres enamorados, amigos de la infancia. Los colores despiertan emociones más vivas: atardeceres en la playa, cumpleaños rodeados de risas, viajes que nos cambiaron para siempre.
+            </p>
+    
+            <p class="font-bold text-slate-800">
+                Cada imagen es un fragmento de nuestra historia, una ventana al pasado que nos permite revivir momentos felices y superar los desafíos. Así que, mientras recorres esta galería, tómate tu tiempo para recordar o para conocer un poco mas de nosotros. Porque en cada foto, hay un pedacito de la historia del CBTIS 211.
+            </p>
+        </article>
+    </section>
+
+    <GalleryReact client:visible />
+</Layout>

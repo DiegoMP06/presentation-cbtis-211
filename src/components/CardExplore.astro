@@ -1,0 +1,11 @@
+---
+    type Props = {
+        classes?: string;
+    }
+
+    const {classes = ''} = Astro.props;
+---
+
+<div class={"bg-white rounded shadow-lg relative " + classes}>
+    <slot />
+</div>

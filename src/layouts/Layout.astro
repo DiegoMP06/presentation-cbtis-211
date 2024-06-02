@@ -1,0 +1,65 @@
+---
+import { Image } from 'astro:assets';
+import Logo from '../components/Logo.astro';
+import Header from '../components/Header.vue';
+import DGETI from '../assets/icons/dgeti.webp';
+import SEP from '../assets/icons/sep.webp';
+import LOGO211 from '../assets/icons/logo_211.webp';
+import Footer from '../components/Footer.vue';
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href={DGETI.src} />
+		<meta name="generator" content={Astro.generator} />
+		<title>CBTIS 211 | {title}</title>
+
+		<ViewTransitions />
+	</head>
+
+	<body class="bg-zinc-100">
+		<Header client:visible >
+			<Logo slot="logo" />
+		</Header>
+
+		<h1 class="text-4xl lg:text-5xl text-center px-4 font-extrabold text-cyan-950 mt-32 mb-10">
+			{ title }
+		</h1>
+
+		<slot />
+		
+		<Footer client:visible>
+			<Image 
+				src={SEP}
+				alt="Logo de la SEP"
+				title="Logo de la SEP"
+				slot="logo-sep" 
+			/>
+
+			<Image 
+				src={LOGO211}
+				alt="Logo del Cbtis 211"
+				title="Logo del Cbtis 211"
+				slot="logo-211" 
+			/>
+
+			<Image 
+				src={DGETI}
+				alt="Logo de la DGETI"
+				title="Logo de la DGETI"
+				slot="logo-dgeti" 
+			/>
+		</Footer>
+	</body>
+</html>
